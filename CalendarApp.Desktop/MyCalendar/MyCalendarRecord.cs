@@ -1,6 +1,6 @@
 namespace CalendarApp.Desktop.MyCalendar;
 
-public record class MyCalendarRecord(DateTime DateAndTime, string Name, string? Description)
+public record struct MyCalendarRecord(DateTime DateAndTime, string Name, string? Description)
 {
     public DtsodV23 ToDtsod()
     {

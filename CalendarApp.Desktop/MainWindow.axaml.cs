@@ -7,6 +7,9 @@ namespace CalendarApp.Desktop
         public MainWindow()
         {
             InitializeComponent();
+            
         }
+        
+        
     }
 }

@@ -2,25 +2,10 @@ namespace CalendarApp.Desktop.MyCalendar;
 
 public class MyCalendarMonth
 {
-    public enum MonthEnum
-    {
-        January=1,
-        February,
-        March,
-        April,
-        May,
-        June,
-        July,
-        August,
-        September,
-        October,
-        November,
-        December
-    }
-
-    public MyCalendarYear Year;
-    public MonthEnum Month;
-    public MyCalendarDay[] Days;
+    public MyCalendar Calendar => Year.Calendar;
+    public readonly MyCalendarYear Year;
+    public readonly MonthEnum Month;
+    public readonly MyCalendarDay[] Days;
     
     public MyCalendarMonth(MyCalendarYear year,int month) : this(year, (MonthEnum)month) {}
     
@@ -57,5 +42,23 @@ public class MyCalendarMonth
                 throw new Exception($"can't get day {dayNum}, because there are only {Days.Length} days in {Month}");
             return Days[dayNum - 1];
         }
+    }
+
+    public MyCalendarMonth PreviousMonth()
+    {
+        MyCalendarMonth prevMonth;
+        if (Month == MonthEnum.January)
+            prevMonth = Calendar[Year.Year - 1][12];
+        else prevMonth = Calendar[Year.Year][(int)Month-1];
+        return prevMonth;
+    }
+
+    public MyCalendarMonth NextMonth()
+    {
+        MyCalendarMonth nextMonth;
+        if (Month==MonthEnum.December)
+            nextMonth = Calendar[Year.Year + 1][1];
+        else nextMonth = Calendar[Year.Year][(int)Month + 1];
+        return nextMonth;
     }
 }

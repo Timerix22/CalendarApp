@@ -13,7 +13,8 @@ public partial class MyCalendarDayView : UserControl
     public MyCalendarDayView(MyCalendarDay day) : this()
     {
         Day = day;
-        textBlock.Text = day.Day.ToString();
+        DayTextBlock.Text = day.Day.ToString();
+        RecordsTextBlock.Text = $"{day.Records.Count} events";
     }
 
     

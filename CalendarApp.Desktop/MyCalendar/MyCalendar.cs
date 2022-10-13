@@ -10,7 +10,7 @@ public class MyCalendar
         {
             if (!Years.TryGetValue(yearNum, out var year))
             {
-                year = new MyCalendarYear(yearNum);
+                year = new MyCalendarYear(this, yearNum);
                 Years.Add(yearNum, year);
             }
 

@@ -2,16 +2,17 @@ namespace CalendarApp.Desktop.MyCalendar;
 
 public class MyCalendarDay
 {
-    public MyCalendarYear Year;
-    public MyCalendarMonth Month;
-    public int Day;
-    public DayOfWeek DayOfWeek;
     
-    public LinkedList<MyCalendarRecord> Records=new();
+    public MyCalendar Calendar=>Year.Calendar;
+    public MyCalendarYear Year=>Month.Year;
+    public readonly MyCalendarMonth Month;
+    public readonly int Day;
+    public readonly DayOfWeek DayOfWeek;
+    
+    public readonly LinkedList<MyCalendarRecord> Records=new();
     
     public MyCalendarDay(MyCalendarMonth month, int day)
     {
-        Year = month.Year;
         Month = month;
         Day = day;
         DayOfWeek = new DateOnly(Year.Year, (int)month.Month, Day).DayOfWeek;

@@ -2,14 +2,53 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:CalendarApp.Desktop.MyCalendar"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="CalendarApp.Desktop.MyCalendarMonthView">
-    <Grid x:Name="grid">
-        <Grid.ColumnDefinitions>
-           10 * * * * * * * 10
-        </Grid.ColumnDefinitions>
+    <Grid>
         <Grid.RowDefinitions>
-           10 * * * * * * 10
+            10
+            50
+            5
+            *
+            10
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            10 * 10
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>* * * *</Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" Content="Previous month" Click="PreviousMonth_pressed"/>
+            <TextBox x:Name="YearBox"
+                Grid.Column="1" Width="100" Height="30" 
+                TextAlignment="Center" FontSize="18">
+                1000-7
+            </TextBox>
+            <ComboBox x:Name="MonthSelector"
+                Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" 
+                FontSize="18">
+                <local:MonthEnum>January</local:MonthEnum>
+                <local:MonthEnum>February</local:MonthEnum>
+                <local:MonthEnum>March</local:MonthEnum>
+                <local:MonthEnum>April</local:MonthEnum>
+                <local:MonthEnum>May</local:MonthEnum>
+                <local:MonthEnum>June</local:MonthEnum>
+                <local:MonthEnum>July</local:MonthEnum>
+                <local:MonthEnum>August</local:MonthEnum>
+                <local:MonthEnum>September</local:MonthEnum>
+                <local:MonthEnum>October</local:MonthEnum>
+                <local:MonthEnum>November</local:MonthEnum>
+                <local:MonthEnum>December</local:MonthEnum>
+            </ComboBox>
+            <Button Grid.Row="0" Grid.Column="3" Content="Next month" HorizontalAlignment="Right" Click="NextMonth_pressed"/>
+        </Grid>
+        <Grid x:Name="DaysGrid" Grid.Row="3" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                * * * * * * * 
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                * * * * * *
+            </Grid.RowDefinitions>
+        </Grid>
     </Grid>
 </UserControl>

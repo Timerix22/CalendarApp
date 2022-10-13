@@ -2,8 +2,9 @@ namespace CalendarApp.Desktop.MyCalendar;
 
 public class MyCalendarYear
 {
-    public int Year;
-    public bool IsLeapYear;
+    public readonly MyCalendar Calendar;
+    public readonly int Year;
+    public readonly bool IsLeapYear;
     
     private MyCalendarMonth[] Months;
     
@@ -17,10 +18,11 @@ public class MyCalendarYear
         }
     }
 
-    public MyCalendarMonth this[MyCalendarMonth.MonthEnum month] => Months[(int)month - 1];
+    public MyCalendarMonth this[MonthEnum month] => Months[(int)month - 1];
 
-    public MyCalendarYear(int year)
+    public MyCalendarYear(MyCalendar calendar, int year)
     {
+        Calendar = calendar;
         Year = year;
         IsLeapYear = DateTime.IsLeapYear(year);
         Months = new MyCalendarMonth[12];

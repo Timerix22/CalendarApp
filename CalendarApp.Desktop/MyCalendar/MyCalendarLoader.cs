@@ -2,7 +2,7 @@ namespace CalendarApp.Desktop.MyCalendar;
 
 public class MyCalendarLoader
 {
-    public MyCalendar LoadedCalendar=new MyCalendar();
+    public readonly MyCalendar LoadedCalendar=new MyCalendar();
     public string DtsodFileName;
     private DtsodV23 storageDtsod;
     

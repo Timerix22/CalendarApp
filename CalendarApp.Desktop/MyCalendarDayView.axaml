@@ -2,8 +2,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="100" d:DesignHeight="70"
              x:Class="CalendarApp.Desktop.MyCalendarDayView"
-             xmlns:local="clr-namespace:CalendarApp.Desktop">
-    <TextBlock x:Name="textBlock" />
+             xmlns:local="clr-namespace:CalendarApp.Desktop"
+             BorderBrush="{StaticResource CalendarViewForeground}"
+             BorderThickness="2">
+    <Grid>
+        <TextBlock x:Name="DayTextBlock" 
+                   HorizontalAlignment="Left" VerticalAlignment="Top" Padding="5"
+                   FontSize="30" >
+            0
+        </TextBlock>
+        <TextBlock x:Name="RecordsTextBlock" 
+                   HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="5" >
+            0 events
+        </TextBlock>
+    </Grid>
 </UserControl>
